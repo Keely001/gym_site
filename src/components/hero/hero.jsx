@@ -8,6 +8,7 @@ import Calories from "../../assets/calories.png";
 const Hero = () => {
   return (
     <div className = "hero">
+        <div className='blur hero-blur'></div>
         <div className = 'left-side'>
             <Header/>
             <div className='best-ad'>
@@ -56,8 +57,8 @@ const Hero = () => {
             </div>
 
             <div>
-                <img src= {hero_image} alt=''  className='hero-image'/>
-                <img src = {hero_image_back} className='hero-image-back' />
+                <img src= {hero_image} alt=''  className='hero-image' />
+                <img src = {hero_image_back} className='hero-image-back'  alt= ""/>
             </div>
             <div className='calories'>
                 <img src= {Calories} alt="" />

@@ -3,6 +3,9 @@ import Hero from './components/hero/hero.jsx';
 import Programs from './components/Programs/Programs.jsx'
 import Reasons from './components/Reasons/reasons';
 import Plans from './components/Plans/Plans.jsx'
+import Testimonials from './components/Testimonials/Testimonials';
+import Join from './components/Join/Join';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -11,6 +14,9 @@ function App() {
     <Programs/>
     <Reasons/>
     <Plans/>
+    <Testimonials/>
+    <Join/>
+    <Footer/>
 
     </div>
   );

@@ -5,14 +5,24 @@ import hero_image from "../../assets/hero_image.png";
 import hero_image_back from "../../assets/hero_image_back.png";
 import Heart from "../../assets/heart.png";
 import Calories from "../../assets/calories.png";
+import NumberCounter from 'number-counter'
+
+import {motion} from 'framer-motion'
+
 const Hero = () => {
+    const transition = {type:'spring',duration:3};
+    const mobile = window.innerWidth<=768 ? true : false;
   return (
     <div className = "hero">
         <div className='blur hero-blur'></div>
         <div className = 'left-side'>
             <Header/>
             <div className='best-ad'>
-                <div> </div>
+                <motion.div
+                initial= {{left: mobile ? '165px': '238px'}}
+                whileInView={{left:'8px'}}
+                transition={transition}
+                ></motion.div>
                 <span>the best fitness club in town</span>
             </div>
             <div className='hero-text'>
@@ -31,15 +41,21 @@ const Hero = () => {
             </div>
             <div className='figures'>
                 <div>
-                    <span>+140</span>
+                    <span>
+                        <NumberCounter end={140} start={100} delay= '4' preFix="+"/>
+                    </span>
                     <span>expert coaches</span>
                 </div>
                 <div>
-                    <span>+978</span>
-                    <span>Members</span>
+                    <span>
+                        <NumberCounter end={978} start={800} delay= '4' preFix="+"/>
+                    </span>
+                    <span>
+                        900+ satisfied
+                    </span>
                 </div>
                 <div>
-                    <span>+50</span>
+                    <span><NumberCounter end={50} start={0} delay= '4' preFix="+"/></span>
                     <span>fitness programs</span>
                 </div>
             </div>
@@ -51,21 +67,34 @@ const Hero = () => {
         <div className='right-side'>
             <button className='btn'>Join now!</button>
 
-            <div className='heart-rate'>
+            <motion.div 
+            initial= {{right: "-1rem"}}
+            whileInView={{right: "4rem"}}
+            transition={transition}
+            className='heart-rate'>
                 <img src= {Heart} alt='heart'/>
                 <span>Heart Rate </span> <span>115 bpm</span>
-            </div>
+            </motion.div>
 
             <div>
                 <img src= {hero_image} alt=''  className='hero-image' />
-                <img src = {hero_image_back} className='hero-image-back'  alt= ""/>
+                <motion.img 
+                initial= {{right: "11rem"}}
+                whileInView={{right: "20rem"}}
+                transition={transition}
+                src = {hero_image_back} className='hero-image-back'  alt= ""/>
             </div>
-            <div className='calories'>
+            <motion.div 
+            initial= {{right: "37rem"}}
+            whileInView={{right: "28rem"}}
+            transition={transition}
+            className='calories' 
+            >
                 <img src= {Calories} alt="" />
                 <div>
                     <span>Calories Burned</span><span>220 kcal</span>           
                 </div>
-            </div>
+            </motion.div>
         </div>
     </div>
   )
